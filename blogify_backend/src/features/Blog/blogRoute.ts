@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Request, Response } from "express";
+import { blogService } from "./blogService";
 const router = express.Router();
 // router for post a blog
-router.post("/create-blog", async (req: Request, res: Response) => {});
+router.post("/create-blog", blogService.postBlog);
 // get all blogs
 router.get("/", async (req: Request, res: Response) => {});
 // get single blog

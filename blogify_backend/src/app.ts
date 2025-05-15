@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 // routers
-app.use("/api/blogs", blogRouter.route);
+app.use("/api/blogs", blogRouter);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello next level Developer");

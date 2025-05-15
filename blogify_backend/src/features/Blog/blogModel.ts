@@ -17,5 +17,4 @@ const blogSchema = new Schema<IBlog>(
     timestamps: true,
   }
 );
-const BlogModel = mongoose.model("Blog", blogSchema);
-export const BlogModels = { BlogModel };
+export const BlogModel = mongoose.model("Blog", blogSchema);
