@@ -4,10 +4,12 @@ import { blogService } from "./blogService";
 const router = express.Router();
 // router for post a blog
 router.post("/create-blog", blogService.postBlog);
+// post multiple blog at the same time
+router.post("/create-blogs", blogService.postBlogs);
 // get all blogs
-router.get("/", async (req: Request, res: Response) => {});
+router.get("/", blogService.getBlogs);
 // get single blog
-router.get("/:id", async (req: Request, res: Response) => {});
+router.get("/:id", blogService.getBlog);
 // update a blog
 router.put("/:id", async (req: Request, res: Response) => {});
 // delete a blog
