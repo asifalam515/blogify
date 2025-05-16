@@ -11,7 +11,7 @@ router.get("/", blogService.getBlogs);
 // get single blog
 router.get("/:id", blogService.getBlog);
 // update a blog
-router.put("/:id", async (req: Request, res: Response) => {});
+router.put("/:id", blogService.updateBlog);
 // delete a blog
-router.delete("/:id", async (req: Request, res: Response) => {});
+router.delete("/:id", blogService.deleteBlog);
 export const blogRouter = router;

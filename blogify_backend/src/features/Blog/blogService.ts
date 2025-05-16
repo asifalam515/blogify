@@ -55,4 +55,48 @@ const getBlog = async (req: Request, res: Response) => {
     });
   }
 };
-export const blogService = { postBlog, postBlogs, getBlogs, getBlog };
+const updateBlog = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const updatedData = req.body;
+    const updatedBlog = await BlogModel.updateOne(
+      {
+        _id: id,
+      },
+      {
+        $set: updatedData,
+      }
+    );
+    res.status(200).json({
+      message: "udpated successfully",
+      data: updatedBlog,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+const deleteBlog = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+
+    const result = await BlogModel.deleteOne({ _id: id });
+    res.status(200).json({
+      message: "Delete Successfully",
+      data: result,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+export const blogService = {
+  postBlog,
+  postBlogs,
+  getBlogs,
+  getBlog,
+  updateBlog,
+  deleteBlog,
+};
